@@ -1,20 +1,13 @@
+{-# LANGUAGE DataKinds           #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE DataKinds #-}
 
 module Main where
 
 import           Coordinates
-import qualified Data.Text      as T
-import           Web.PathPieces
+import qualified Data.Text              as T
+import           Orphans.Lib_PathPieces ()
 import           Web.Spock.Safe
-
--- | Here we want to parse Double's from the URL.
--- since parsing double is subjective to our need
--- we have to define it.
-instance PathPiece Double where
-    fromPathPiece = Just . read . T.unpack
-    toPathPiece = T.pack . show
 
 
 distancePath :: Path '[Double, Double, Double, Double]
