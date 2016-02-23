@@ -19,6 +19,6 @@ main =
     runSpock 3000 $ spockT id $
     do  get distancePath $ \lat1 lng1 lat2 lng2 ->
             text $ T.pack $ show $
-                distance (coord lat1 lng1) (coord lat2 lng2)
+                distance (Coordinates lat1 lng1) (Coordinates lat2 lng2)
         get ("test" <//> var) $ \hello ->
             text hello

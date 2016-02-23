@@ -1,6 +1,8 @@
 module Coordinates
-    ( coord
-    , distance
+    ( distance
+    , Latitude
+    , Longitude
+    , Coordinates(..)
     ) where
 
 
@@ -15,10 +17,6 @@ data Coordinates =
 
 -- | Distances are expressed in meters.
 type Distance = Double
-
-
-coord :: Double -> Double -> Coordinates
-coord = Coordinates
 
 -- | Earth radius expressed in kilometers.
 radius :: Double
