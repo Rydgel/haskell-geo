@@ -5,7 +5,6 @@ module Coordinates
     , Coordinates(..)
     ) where
 
-
 type Latitude = Double
 type Longitude = Double
 

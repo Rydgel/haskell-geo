@@ -6,6 +6,10 @@ resolver: lts-6.3
 # Local packages, usually specified by relative directory name
 packages:
 - '.'
+- location:
+    git: https://github.com/ewestern/geos
+    commit: e905c9b2c820eda877d4fdb8efc51ea5e10bc2bb
+  extra-dep: true
 
 # Packages to be pulled from upstream that are not in the resolver (e.g., acme-missiles-0.3)
 extra-deps: []
@@ -15,6 +19,9 @@ flags: {}
 
 # Extra package databases containing global packages
 extra-package-dbs: []
+
+ghc-options:
+    haskell-geo: "-threaded -O2 -rtsopts -with-rtsopts=-N -Wall"
 
 # Control whether we use the GHC we find on the path
 # system-ghc: true

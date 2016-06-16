@@ -16,9 +16,11 @@ distancePath = "distance" <//> var <//> var <//> var <//> var
 
 main :: IO ()
 main =
-    runSpock 3000 $ spockT id $
-    do  get distancePath $ \lat1 lng1 lat2 lng2 ->
+    runSpock 3000 $ spockT id $ do
+        -- | /distance/:lat1/:lng1/:lat2/:lng2
+        -- Get the distance between 2 points.
+        get distancePath $ \lat1 lng1 lat2 lng2 ->
             text $ T.pack $ show $
-                distance (Coordinates lat1 lng1) (Coordinates lat2 lng2)
+              distance (Coordinates lat1 lng1) (Coordinates lat2 lng2)
         get ("test" <//> var) $ \hello ->
             text hello
