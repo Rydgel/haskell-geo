@@ -20,9 +20,6 @@ flags: {}
 # Extra package databases containing global packages
 extra-package-dbs: []
 
-ghc-options:
-    haskell-geo: "-threaded -O2 -rtsopts -with-rtsopts=-N -Wall"
-
 # Control whether we use the GHC we find on the path
 # system-ghc: true
 
