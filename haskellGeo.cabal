@@ -1,0 +1,61 @@
+name:                haskellGeo
+version:             0.1.0.0
+synopsis:            Initial project template from stack
+description:         Please see README.md
+homepage:            http://github.com/githubuser/haskell-geo#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Author name here
+maintainer:          example@example.com
+copyright:           2016 Author Here
+category:            Web
+build-type:          Simple
+data-dir:            resources
+data-files:          ne_10m_admin_0_countries/ne_10m_admin_0_countries.shp
+                   , ne_10m_admin_0_countries/ne_10m_admin_0_countries.cpg
+                   , ne_10m_admin_0_countries/ne_10m_admin_0_countries.dbf
+                   , ne_10m_admin_0_countries/ne_10m_admin_0_countries.prj
+                   , ne_10m_admin_0_countries/ne_10m_admin_0_countries.shx
+-- extra-source-files:
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Coordinates
+                     , Orphans.Lib_PathPieces
+  build-depends:       base >= 4.7 && < 5
+                     , Spock
+                     , text
+                     , path-pieces
+                     , bindings-gdal
+                     , bytestring
+                     , transformers
+                     , conduit
+  default-language:    Haskell2010
+
+executable haskell-geo-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -Wall -O2
+  build-depends:       base
+                     , haskellGeo
+                     , Spock
+                     , text
+                     , bindings-gdal
+                     , bytestring
+                     , transformers
+                     , conduit
+  default-language:    Haskell2010
+
+test-suite haskell-geo-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , haskellGeo
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -Wall -O2
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/githubuser/haskell-geo
