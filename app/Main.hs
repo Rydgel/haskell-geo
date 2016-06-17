@@ -25,10 +25,6 @@ getShapePath = liftIO $ getDataFileName "ne_10m_admin_0_countries/ne_10m_admin_0
 
 main :: IO ()
 main = do
-
-    -- executeSQL :: OGRFeature a => SQLDialect -> Text -> Maybe Geometry -> RODataSource s -> GDAL s (ROLayer s l a)
-    -- sourceLayer_ :: OGRFeature a => GDAL s (Layer s l t a) -> OGRSource s l a
-
     withGDAL $ runGDAL_ $ do
       ds <- getShapePath >>= OGR.openReadOnly
       let sql = "SELECT name, name_long, formal_en, iso_a2, iso_a3, continent,\
@@ -37,7 +33,6 @@ main = do
                 \ WHERE ST_Intersects(GeomFromText('POINT(2.3488000 48.8534100)'), ne_10m_admin_0_countries.geometry)"
       let src = sourceLayer_ $ executeSQL SqliteDialect sql Nothing ds
       (fs :: [Feature]) <- runOGR (src $$ CL.consume)
-      -- liftIO $ print fs
       liftIO (print fs)
 
     runSpock 3000 $ spockT id $ do
