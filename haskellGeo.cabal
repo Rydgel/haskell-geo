@@ -23,6 +23,8 @@ library
   hs-source-dirs:      src
   exposed-modules:     Coordinates
                      , Orphans.Lib_PathPieces
+                     , Paths_haskellGeo
+                     , Models.Country
   build-depends:       base >= 4.7 && < 5
                      , Spock
                      , text
@@ -31,6 +33,7 @@ library
                      , bytestring
                      , transformers
                      , conduit
+                     , deepseq
   default-language:    Haskell2010
 
 executable haskell-geo-exe
@@ -45,6 +48,7 @@ executable haskell-geo-exe
                      , bytestring
                      , transformers
                      , conduit
+                     , deepseq
   default-language:    Haskell2010
 
 test-suite haskell-geo-test

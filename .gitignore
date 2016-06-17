@@ -15,3 +15,4 @@ cabal.config
 *.hp
 *.aux
 .DS_Store
+TAGS
