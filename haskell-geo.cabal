@@ -22,6 +22,7 @@ library
                      , text
                      , path-pieces
                      , geos
+                     , bindings-gdal
                      , bytestring
   default-language:    Haskell2010
 
@@ -34,6 +35,7 @@ executable haskell-geo-exe
                      , Spock
                      , text
                      , geos
+                     , bindings-gdal
                      , bytestring
   default-language:    Haskell2010
 

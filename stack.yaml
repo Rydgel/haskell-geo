@@ -10,6 +10,10 @@ packages:
     git: https://github.com/ewestern/geos
     commit: e905c9b2c820eda877d4fdb8efc51ea5e10bc2bb
   extra-dep: true
+- location:
+    git: https://github.com/albertov/bindings-gdal
+    commit: c908c2af77db2722bd691db741241b2aa1d5b39b
+  extra-dep: true
 
 # Packages to be pulled from upstream that are not in the resolver (e.g., acme-missiles-0.3)
 extra-deps: []
