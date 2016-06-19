@@ -2,8 +2,11 @@ module Coordinates
     ( distance
     , Latitude
     , Longitude
+    , toGeometryPoint
     , Coordinates(..)
     ) where
+
+import           Data.Monoid ((<>))
 
 type Latitude = Double
 type Longitude = Double
@@ -20,6 +23,11 @@ type Distance = Double
 -- | Earth radius expressed in kilometers.
 radius :: Double
 radius = 6372.8
+
+-- | Transform the Coordinates into something OGR understand.
+toGeometryPoint :: Coordinates -> String
+toGeometryPoint (Coordinates lat lng) =
+    "POINT(" <> show lng <> "" <> show lat <> ")"
 
 -- | Calculate the distance between two coordinates
 -- This is an implementation of the Haversine function.
