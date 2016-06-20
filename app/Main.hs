@@ -6,13 +6,14 @@
 
 module Main where
 
+import           Control.Monad.IO.Class
 import           Coordinates
 import qualified Data.Text              as T
+import           GDAL
+import           Models.Country
+import           Orphans.Lib_Aeson      ()
 import           Orphans.Lib_PathPieces ()
 import           Web.Spock.Safe
-import           Models.Country
-import           Control.Monad.IO.Class
-import           GDAL
 
 
 distancePath :: Path '[Double, Double, Double, Double]
@@ -32,5 +33,5 @@ main =
               distance (Coordinates lat1 lng1) (Coordinates lat2 lng2)
         get countryPath $ \lat lng -> do
             -- 48.8534100 2.3488000
-            c <- liftIO $ getCountry $ Coordinates lat lng
-            text $ T.pack $ show c
+            c <- liftIO $ getCountry (Coordinates lat lng)
+            json c

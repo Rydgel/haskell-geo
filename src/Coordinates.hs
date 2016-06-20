@@ -27,7 +27,7 @@ radius = 6372.8
 -- | Transform the Coordinates into something OGR understand.
 toGeometryPoint :: Coordinates -> String
 toGeometryPoint (Coordinates lat lng) =
-    "POINT(" <> show lng <> "" <> show lat <> ")"
+    "POINT(" <> show lng <> " " <> show lat <> ")"
 
 -- | Calculate the distance between two coordinates
 -- This is an implementation of the Haversine function.
