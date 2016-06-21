@@ -9,5 +9,5 @@ import           Web.PathPieces
 -- since parsing double is subjective to our need
 -- we have to define it.
 instance PathPiece Double where
-    fromPathPiece = Just . read . T.unpack
-    toPathPiece = T.pack . show
+  fromPathPiece = Just . read . T.unpack
+  toPathPiece = T.pack . show

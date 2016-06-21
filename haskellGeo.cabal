@@ -22,6 +22,7 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     Coordinates
+                     , Errors
                      , Orphans.Lib_PathPieces
                      , Orphans.Lib_Aeson
                      , Paths_haskellGeo
@@ -38,6 +39,7 @@ library
                      , unordered-containers
                      , aeson
                      , either
+                     , http-types
   default-language:    Haskell2010
 
 executable haskell-geo-exe
@@ -56,6 +58,7 @@ executable haskell-geo-exe
                      , unordered-containers
                      , aeson
                      , either
+                     , http-types
   default-language:    Haskell2010
 
 test-suite haskell-geo-test
