@@ -44,6 +44,8 @@ main =
     get distancePath $ \lat1 lng1 lat2 lng2 ->
       text $ T.pack $ show $
         distance (Coordinates lat1 lng1) (Coordinates lat2 lng2)
+    -- | /country/:lat/lng
+    -- Get the country who belongs those coordinates.
     get countryPath $ \lat lng -> do
       c <- liftIO $ getCountry (Coordinates lat lng)
       maybe404 c "No country found"
