@@ -16,3 +16,4 @@ cabal.config
 *.aux
 .DS_Store
 TAGS
+.haskell-ghc-mod.json
